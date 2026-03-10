@@ -28,31 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textN = new TextBox();
+            textBoxInput = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            buttonCalc = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // textN
             // 
-            textBox1.Location = new Point(12, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            textN.Location = new Point(12, 32);
+            textN.Name = "textN";
+            textN.Size = new Size(125, 27);
+            textN.TabIndex = 0;
             // 
-            // textBox2
+            // textBoxInput
             // 
-            textBox2.Location = new Point(14, 56);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 1;
+            textBoxInput.Location = new Point(246, 32);
+            textBoxInput.Multiline = true;
+            textBoxInput.Name = "textBoxInput";
+            textBoxInput.Size = new Size(237, 107);
+            textBoxInput.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Число N";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(246, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Числа";
+            // 
+            // buttonCalc
+            // 
+            buttonCalc.Font = new Font("Segoe UI", 14F);
+            buttonCalc.Location = new Point(530, 42);
+            buttonCalc.Name = "buttonCalc";
+            buttonCalc.Size = new Size(226, 81);
+            buttonCalc.TabIndex = 4;
+            buttonCalc.Text = "Посчитать";
+            buttonCalc.UseVisualStyleBackColor = true;
+            buttonCalc.Click += button1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(buttonCalc);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(textBoxInput);
+            Controls.Add(textN);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -61,7 +97,10 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textN;
+        private TextBox textBoxInput;
+        private Label label1;
+        private Label label2;
+        private Button buttonCalc;
     }
 }
