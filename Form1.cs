@@ -25,6 +25,8 @@ namespace cs_gui_1
                 b[i] = int.Parse(parts[i * 3 + 1]);
                 c[i] = int.Parse(parts[i * 3 + 2]);
             }
+            int validTriangles = new TriangleCalculator().Count(a, b, c, n);
+            MessageBox.Show($"Количество треугольников: {validTriangles}");
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
