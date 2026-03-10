@@ -9,21 +9,29 @@ namespace cs_gui_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int n = int.Parse(this.textN.Text);
-            string[] parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            int n;
+            int[] a, b, c;
+            try { 
+                n = int.Parse(this.textN.Text);
+                string[] parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            if (parts.Length < n * 3){
-                MessageBox.Show("Недостаточно чисел для треугольников.");
-                return;
+                if (parts.Length < n * 3){
+                    MessageBox.Show("Недостаточно чисел для треугольников.");
+                    return;
+                }
+                a = new int[n];
+                b = new int[n];
+                c = new int[n];
+                for (int i = 0; i < n; i++)
+                {
+                    a[i] = int.Parse(parts[i * 3]);
+                    b[i] = int.Parse(parts[i * 3 + 1]);
+                    c[i] = int.Parse(parts[i * 3 + 2]);
+                }
             }
-            int[] a = new int[n];
-            int[] b = new int[n];
-            int[] c = new int[n];
-            for (int i = 0; i < n; i++)
-            {
-                a[i] = int.Parse(parts[i * 3]);
-                b[i] = int.Parse(parts[i * 3 + 1]);
-                c[i] = int.Parse(parts[i * 3 + 2]);
+            catch (FormatException){ 
+                MessageBox.Show("введите корректные числа");
+                return;
             }
             int validTriangles = new TriangleCalculator().Count(a, b, c, n);
             MessageBox.Show($"Количество треугольников: {validTriangles}");
