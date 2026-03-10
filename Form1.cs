@@ -52,12 +52,12 @@ namespace cs_gui_1
     }
     public class TriangleCalculator
     {
-        public int Count(int[] a, int[] b, int[] c, int n)
+        public static int Count(List<Triangle> triangles)
         {
             int count = 0;
-            for (int i = 0; i < n; i++)
+            foreach (var t in triangles)
             {
-                if (a[i] + b[i] > c[i] && a[i] + c[i] > b[i] && b[i] + c[i] > a[i])
+                if (t.IsValid())
                 {
                     count++;
                 }
