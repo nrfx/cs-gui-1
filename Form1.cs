@@ -5,15 +5,19 @@ namespace cs_gui_1
         public Form1()
         {
             InitializeComponent();
+
+            textN.Text = Properties.Settings.Default.n_save.ToString();
+            textBoxInput.Text = Properties.Settings.Default.Input_save;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int n;
             int[] a, b, c;
+            string[] parts;
             try { 
                 n = int.Parse(this.textN.Text);
-                string[] parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (parts.Length < n * 3){
                     MessageBox.Show("Недостаточно чисел для треугольников.");
@@ -33,6 +37,10 @@ namespace cs_gui_1
                 MessageBox.Show("введите корректные числа");
                 return;
             }
+            Properties.Settings.Default.n_save = n;
+            Properties.Settings.Default.Input_save = textBoxInput.Text;
+            Properties.Settings.Default.Save();
+
             int validTriangles = new TriangleCalculator().Count(a, b, c, n);
             MessageBox.Show($"Количество треугольников: {validTriangles}");
         }
