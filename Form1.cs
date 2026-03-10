@@ -13,8 +13,9 @@ namespace cs_gui_1
         private void button1_Click(object sender, EventArgs e)
         {
             int n;
-            int[] a, b, c;
+            int sideA, sideB, sideC;
             string[] parts;
+            List<Triangle> triangles = new List<Triangle>();
             try { 
                 n = int.Parse(this.textN.Text);
                 parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
@@ -23,14 +24,12 @@ namespace cs_gui_1
                     MessageBox.Show("Недостаточно чисел для треугольников.");
                     return;
                 }
-                a = new int[n];
-                b = new int[n];
-                c = new int[n];
                 for (int i = 0; i < n; i++)
                 {
-                    a[i] = int.Parse(parts[i * 3]);
-                    b[i] = int.Parse(parts[i * 3 + 1]);
-                    c[i] = int.Parse(parts[i * 3 + 2]);
+                    sideA = int.Parse(parts[i * 3]);
+                    sideB = int.Parse(parts[i * 3 + 1]);
+                    sideC = int.Parse(parts[i * 3 + 2]);
+                    triangles.Add(new Triangle(sideA, sideB, sideC));
                 }
             }
             catch (FormatException){ 
@@ -41,7 +40,7 @@ namespace cs_gui_1
             Properties.Settings.Default.Input_save = textBoxInput.Text;
             Properties.Settings.Default.Save();
 
-            int validTriangles = new TriangleCalculator().Count(a, b, c, n);
+            int validTriangles = TriangleCalculator.Count(triangles);
             MessageBox.Show($"Количество треугольников: {validTriangles}");
         }
 
