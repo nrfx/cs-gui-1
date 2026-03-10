@@ -67,3 +67,22 @@ namespace cs_gui_1
     }
 
 }
+
+public class Triangle
+{
+    public int a;
+    public int b;
+    public int c;
+
+    public Triangle(int sideA, int sideB, int sideC)
+    {
+        a = sideA;
+        b = sideB;
+        c = sideC;
+    }
+
+    public bool IsValid()
+    {
+        return (a + b > c) && (a + c > b) && (b + c > a);
+    }
+}
