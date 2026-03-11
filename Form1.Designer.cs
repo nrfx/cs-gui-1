@@ -64,9 +64,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(246, 9);
             label2.Name = "label2";
-            label2.Size = new Size(51, 20);
+            label2.Size = new Size(104, 20);
             label2.TabIndex = 3;
-            label2.Text = "Числа";
+            label2.Text = "Тройки чисел";
             // 
             // buttonCalc
             // 
@@ -83,7 +83,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 178);
             Controls.Add(buttonCalc);
             Controls.Add(label2);
             Controls.Add(label1);

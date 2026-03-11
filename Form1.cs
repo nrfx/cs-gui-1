@@ -18,7 +18,7 @@ namespace cs_gui_1
             List<Triangle> triangles = new List<Triangle>();
             try { 
                 n = int.Parse(this.textN.Text);
-                parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                parts = textBoxInput.Text.Split(new char[] { ' ', '\n', '\r' });
 
                 if (parts.Length < n * 3){
                     MessageBox.Show("Недостаточно чисел для треугольников.");
@@ -44,10 +44,7 @@ namespace cs_gui_1
             MessageBox.Show($"Количество треугольников: {validTriangles}");
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
 
-        }
     }
     public class TriangleCalculator
     {
